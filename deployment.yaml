@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: updatedhealthproject-deployment
+  labels:
+    app: updatedhealthproject
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: updatedhealthproject
+  template:
+    metadata:
+      labels:
+        app: updatedhealthproject
+    spec:
+      containers:
+      - name: updatedhealthproject
+        image: nkcharan/updatedhealthproject:v2
+        ports:
+        - containerPort: 8082  # Updated to match the exposed port
